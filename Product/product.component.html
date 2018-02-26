@@ -1,0 +1,61 @@
+
+<h2>{{title}}</h2>
+
+<!-- <ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link active" >Table View</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"> List View </a>
+  </li>
+</ul> -->
+
+
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link active" >Table View</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" >List View</a>
+  </li>
+  
+</ul>
+
+
+
+
+
+<br/>
+<br/>
+<div *ngIf="product.length>0; then productData else noProduct"></div>
+<ng-template #productData>
+  <div *ngFor="let prd of product">
+    <!-- <div- *ngFor="let prd of product"> -->
+    <table class="table table-striped">
+      <tr>
+        <th>Product Name</th>
+        <td>{{prd.name|uppercase}}</td>
+      </tr>
+      <tr>
+        <th>Product Price</th>
+        <td>{{prd.price|currency:'INR'}}</td>
+      </tr>
+      <tr>
+        <th>Product Quantity</th>
+        <td>{{prd.quantity|number}}</td>
+      </tr>
+      <tr>
+        <th>Product Rating</th>
+        <td>{{prd.rating|number:'1.1-2'}}</td>
+      </tr>
+      <tr>
+        <th>Product Release Date</th>
+        <td>{{prd.releaseDate|date:'dd-MM-yyyy'}}</td>
+      </tr>
+    </table>
+  </div>
+</ng-template>
+<ng-template #noProduct>
+  <!-- <div *ngIf="product.length==0"></div> -->
+  No Product Available
+</ng-template>
